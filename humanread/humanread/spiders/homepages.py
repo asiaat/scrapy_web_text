@@ -5,7 +5,7 @@ class HomepagesSpider(scrapy.Spider):
     name = "homepages"
     allowed_domains = ["python.org"]
     start_urls = ["https://python.org/"]
-    filename = f"output/crawl1.txt"
+    filename = f"output/crawl2.txt"
 
     def start_requests(self):
         urls = self.start_urls # Replace with your desired website
@@ -18,6 +18,8 @@ class HomepagesSpider(scrapy.Spider):
         
         soup = BeautifulSoup(response.text, 'html.parser')
         text = soup.get_text()
+        text = '\n'.join([line.strip() for line in text.split('\n') if line.strip()])
+        
         
         with open(self.filename, 'a') as f:
             f.write(text)
