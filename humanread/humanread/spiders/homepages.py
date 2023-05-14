@@ -7,7 +7,7 @@ class HomepagesSpider(scrapy.Spider):
     start_urls = ["https://pypi.org/project/pandas/", "https://pypi.org/project/unstructured/"]
     filename = f"output/crawl2.txt"
     outputdir = "output"
-    homepage=""
+    homepage = ""
 
     def start_requests(self):
         urls = self.start_urls # Replace with your desired website
